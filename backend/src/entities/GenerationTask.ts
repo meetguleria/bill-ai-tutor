@@ -4,15 +4,15 @@ import { Lesson } from './Lesson';
 
 @Entity()
 export class GenerationTask {
-  @PrimaryGeneratedColumn() id: number;
+  @PrimaryGeneratedColumn() id!: number;
 
-  @Column('text') prompt: string;
-  @Column({ length: 50 }) modelName: string;
-  @CreateDateColumn() createdAt: Date;
+  @Column('text') prompt!: string;
+  @Column({ length: 50 }) modelName!: string;
+  @CreateDateColumn() createdAt!: Date;
 
   @OneToMany(() => Course, course => course.generationTask)
-  courses: Course[];
+  courses!: Course[];
 
   @OneToMany(() => Lesson, lesson => lesson.generationTask)
-  lessons: Lesson[];
+  lessons!: Lesson[];
 } 

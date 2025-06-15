@@ -4,14 +4,14 @@ import { ReviewRecord } from './ReviewRecord';
 
 @Entity()
 export class Flashcard {
-  @PrimaryGeneratedColumn() id: number;
+  @PrimaryGeneratedColumn() id!: number;
 
-  @Column('text') question: string;
-  @Column('text') answer: string;
+  @Column('text') question!: string;
+  @Column('text') answer!: string;
 
   @ManyToOne(() => Lesson, lesson => lesson.flashcards, { onDelete: 'CASCADE' })
-  lesson: Lesson;
+  lesson!: Lesson;
 
   @OneToMany(() => ReviewRecord, rec => rec.flashcard)
-  reviewRecords: ReviewRecord[];
+  reviewRecords!: ReviewRecord[];
 } 

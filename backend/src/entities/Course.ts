@@ -4,14 +4,14 @@ import { GenerationTask } from './GenerationTask';
 
 @Entity()
 export class Course {
-  @PrimaryGeneratedColumn() id: number;
+  @PrimaryGeneratedColumn() id!: number;
 
-  @Column({ length: 200 }) title: string;
-  @Column('text') description: string;
+  @Column({ length: 200 }) title!: string;
+  @Column('text') description!: string;
 
   @ManyToOne(() => GenerationTask, gt => gt.courses, { eager: true })
-  generationTask: GenerationTask;
+  generationTask!: GenerationTask;
 
   @OneToMany(() => Lesson, lesson => lesson.course, { cascade: true })
-  lessons: Lesson[];
+  lessons!: Lesson[];
 } 

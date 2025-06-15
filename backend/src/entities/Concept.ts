@@ -4,15 +4,15 @@ import { User } from './User';
 
 @Entity()
 export class Concept {
-  @PrimaryGeneratedColumn() id: number;
+  @PrimaryGeneratedColumn() id!: number;
 
-  @Column({ length: 100 }) name: string;
-  @Column('text', { nullable: true }) description: string;
+  @Column({ length: 100 }) name!: string;
+  @Column('text', { nullable: true }) description!: string;
 
   @ManyToMany(() => Lesson, lesson => lesson.concepts)
-  lessons: Lesson[];
+  lessons!: Lesson[];
 
   @ManyToMany(() => User, user => user.progressRecords)
   @JoinTable()
-  users: User[];
+  users!: User[];
 } 
